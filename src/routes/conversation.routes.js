@@ -1,20 +1,21 @@
 const { Router } = require("express");
 const authenticate = require("../middlewares/auth.middleware");
 const {
-  getUserProducts,
-  getUserOrders,
-  getByUserProductsInCart,
-  getProducts,
+  getUserConversations,
+  getConversationMessages,
+  createMessageInConversation,
+  createConversation,
+  getMessages,
 } = require("../controllers");
 
 /**
  * @openapi
- * /api/v1/orders/{id}:
+ * /api/v1/conversations/{id}:
  *   get:
  *     security:
  *       - bearerAuth: []
- *     summary: Get all orders from user
- *     tags: [orders]
+ *     summary: Get all conversations from user
+ *     tags: [conversations]
  *     parameters:
  *       - in: path
  *         name: id
@@ -40,22 +41,26 @@ const {
  */
 
 const router = Router();
-router.get("/products/:id", authenticate, getUserProducts);
-router.get("/orders/products/:orderId", getProducts);
+// obtiene todas las conversaciones de un usuario
+// primera es agreagar un campo para el parametro de la petición
+// user id
+// es poder enviar el token en la petición
+router.get("/conversations/:id", authenticate, getUserConversations);
+router.get("/conversations/messages/:conversationId", getMessages);
 router.get(
-  "/orders/:orderId/products",
+  "/conversations/:conversationId/messages",
   authenticate,
-  // getProductsInOrder
+  getConversationMessages
 );
 router.post(
-  "/orders/:orderId/product",
+  "/conversations/:conversationId/message",
   authenticate,
-  // createProductInOrder
+  createMessageInConversation
 );
 
-router.post("/orders", authenticate);
+router.post("/conversations", authenticate, createConversation);
 
-// crear una order
+// crear una conversación
 // titulo
 // created by
 // participantes

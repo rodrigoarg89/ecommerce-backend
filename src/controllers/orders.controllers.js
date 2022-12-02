@@ -46,10 +46,9 @@ const getUserOrders = async (req, res, next) => {
 //create a new product including an image
 const createNewProduct = async (req, res, next) => {
   try {
-    // creator, title, participants
-    //{ createdBy: 1, title: 'lasdñkjfalk', participants: [1, 3] }
+    // {id, nameProduct, price, availableQty, status, createdBy, imageURL}
     const data = req.body;
-    const result = await OrdersServices.create(data);
+    const result = await OrdersServices.createProduct(data);
     res.json(result);
   } catch (error) {
     next({
@@ -81,12 +80,12 @@ const getByUserProductsInCart = async (req, res, next) => {
 
 
 //add a product to the cart
-const createCart = async (req, res, next) => {
+const addProductInCart = async (req, res, next) => {
   try {
     // creator, title, participants
     //{ createdBy: 1, title: 'lasdñkjfalk', participants: [1, 3] }
     const data = req.body;
-    const result = await ConversationsServices.create(data);
+    const result = await OrdersServices.create(data);
     res.json(result);
   } catch (error) {
     next({
@@ -133,6 +132,6 @@ module.exports = {
   getUserProducts,
   getUserOrders,
   getByUserProductsInCart,
-  createProductInOrder,
+  createNewProduct,
   getProducts,
 };

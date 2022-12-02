@@ -33,11 +33,11 @@ const Products = db.define(
       allowNull: false,
       field: "created_by",
     },
-    imageURL: {
-      TYPE: DataTypes.STRING,
-      allowNull: false,
-      field: "image_url"
-    }
+    // imageURL: {
+    //   TYPE: DataTypes.STRING,
+    //   allowNull: false,
+    //   field: "image_url"
+    // }
   },
   {
     timestamps: true,

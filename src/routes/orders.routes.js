@@ -4,7 +4,9 @@ const {
   getUserProducts,
   getUserOrders,
   getByUserProductsInCart,
-  getProducts,
+  createNewProduct,
+  addProductInCart,
+  getProductsOrder
 } = require("../controllers");
 
 /**
@@ -14,7 +16,7 @@ const {
  *     security:
  *       - bearerAuth: []
  *     summary: Get all orders from user
- *     tags: [orders]
+ *     tags: [Orders]
  *     parameters:
  *       - in: path
  *         name: id
@@ -40,31 +42,14 @@ const {
  */
 
 const router = Router();
-router.get("/products/:id", authenticate, getUserProducts);
-router.get("/orders/products/:orderId", getProducts);
-router.get(
-  "/orders/:orderId/products",
-  authenticate,
-  // getProductsInOrder
-);
-router.post(
-  "/orders/:orderId/product",
-  authenticate,
-  // createProductInOrder
-);
+router.get("/products/:userId", authenticate, getUserProducts);
+router.get("/orders/:userId", getUserOrders);
+router.get("/carts/:userId", authenticate, getByUserProductsInCart);
+router.post("/product", authenticate, createNewProduct);
+router.post("/carts/:cartId/product", authenticate, addProductInCart);
+router.get("/orders/:oderId", getProductsOrder);
 
-router.post("/orders", authenticate);
 
-// crear una order
-// titulo
-// created by
-// participantes
 
 module.exports = router;
 
-// ?
-// es un par clave-valor (key/value)
-// ?username=jose&phone=1111111111&country=usa
-// https://pokeapi.co/api/v2/pokemon?offset=60&limit=20
-
-// como changaos obtenemos los query params en node??

@@ -9,12 +9,9 @@ const bcrypt = require("bcrypt");
  *     users:
  *       type: object
  *       properties:
- *         firstname:
+ *         username:
  *           type: string
- *           example: Ian
- *         lastname:
- *           type: string
- *           example: Rosas
+ *           example: rodrigoarg
  *         email:
  *           type: string
  *           example: ian@gmail.com

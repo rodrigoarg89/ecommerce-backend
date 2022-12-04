@@ -1,10 +1,12 @@
-const { userRegister, getAllUser } = require("./users.controllers");
+const { userRegister } = require("./users.controllers");
 const { userLogin } = require("./auth.controllers");
 const {
   getUserProducts,
   getUserOrders,
-  getProducts,
   createNewProduct,
+  getByUserProductsInCart,
+  addProductInCart,
+  getProductsOrder
 } = require("./orders.controllers");
 
 module.exports = {
@@ -13,5 +15,7 @@ module.exports = {
   getUserProducts,
   getUserOrders,
   createNewProduct,
-  getProducts,
+  getByUserProductsInCart,
+  addProductInCart,
+  getProductsOrder
 };

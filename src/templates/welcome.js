@@ -1,4 +1,4 @@
-const welcomeTemplate = (firstname, lastname) => `
+const welcomeTemplate = (username) => `
   <!DOCTYPE html>
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
@@ -92,8 +92,8 @@ const welcomeTemplate = (firstname, lastname) => `
                         <td>
                           <p
                             style="font-weight:400;font-size: 16px;line-height: 150%;letter-spacing: 0.2px;color: #333333;">
-                            Gracias por registrarte a chatApp para vivir la experiencia de mensajeria.
-                            Te invitamos a que generes tu primer conversación y disfrutes de esta plataforma.
+                            Gracias por registrarte a ecomerce!!!
+                            Te invitamos a que generes tu primera compra y disfrutes de esta plataforma.
                             Esperemos que sea de tu agrado.
                           </p>
                         </td>

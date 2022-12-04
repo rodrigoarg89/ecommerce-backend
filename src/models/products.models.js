@@ -11,7 +11,7 @@ const Products = db.define(
       allowNull: false,
     },
     nameProduct: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
       field: "name"
     }, 

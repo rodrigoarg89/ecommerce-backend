@@ -82,8 +82,6 @@ const getByUserProductsInCart = async (req, res, next) => {
 //add a product to the cart
 const addProductInCart = async (req, res, next) => {
   try {
-    // creator, title, participants
-    //{ createdBy: 1, title: 'lasdñkjfalk', participants: [1, 3] }
     const data = req.body;
     const result = await OrdersServices.create(data);
     res.json(result);
@@ -101,8 +99,8 @@ const addProductInCart = async (req, res, next) => {
 
 
 
-
-const getProducts = async (req, res, next) => {
+// get products from a order
+const getProductsOrder = async (req, res, next) => {
   try {
     const { orderId } = req.params;
     const offset = Number(req.query.offset ?? 0);
@@ -133,5 +131,6 @@ module.exports = {
   getUserOrders,
   getByUserProductsInCart,
   createNewProduct,
-  getProducts,
+  addProductInCart,
+  getProductsOrder,
 };

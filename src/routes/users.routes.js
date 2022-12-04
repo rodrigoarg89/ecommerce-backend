@@ -11,7 +11,7 @@ const router = Router();
  *     summary: Register a new user into the app
  *     tags: [Users]
  *     requestBody:
- *       description: To register a new user you need a firstname, lastname, email, phone and password
+ *       description: To register a new user you need a username, email, and password
  *       required: true
  *       content:
  *         application/json:
